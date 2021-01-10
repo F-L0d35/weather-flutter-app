@@ -22,6 +22,7 @@ class _AppState extends State<ClassApp_7> {
     if(_transaction.content.isEmpty || _transaction.amount == 0.0 || _transaction.amount.isNaN) {
       return;
     }
+    _transaction.createDate = DateTime.now();
     _transactions.add(_transaction);
     _transaction = Transaction(content: '', amount: 0.0);
     _contentController.text = '';

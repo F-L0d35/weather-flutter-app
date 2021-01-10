@@ -73,5 +73,14 @@ flutter:
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
   #
+  fonts:
+    - family: Bonbon
+      fonts:
+        - asset: assets\fonts\Bonbon\Bonbon-Regular.ttf
+          style: italic
+    - family: Great_Vibes
+      fonts:
+        - asset: assets\fonts\Great_Vibes\GreatVibes-Regular.ttf
+          #style: regular
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
