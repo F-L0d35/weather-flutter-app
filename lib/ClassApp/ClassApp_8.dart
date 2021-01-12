@@ -1,20 +1,17 @@
-import 'dart:math';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:weatherApp/Transaction.dart';
-import 'package:weatherApp/TransactionList.dart';
+import 'package:weatherApp/ClassApp/Transaction.dart';
+import 'package:weatherApp/ClassApp/TransactionList_Class7.dart';
+import 'file:///C:/Users/felip/Desktop/Projetos/weather-flutter-app/lib/ClassApp/TransactionList.dart';
 
-import 'TransactionList_Class7.dart';
-
-class ClassApp_9 extends StatefulWidget {
+class ClassApp_8 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _AppState();
   }
 }
 
-class _AppState extends State<ClassApp_9> {
+class _AppState extends State<ClassApp_8> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final _contentController = TextEditingController();
   final _amountController = TextEditingController();
@@ -70,38 +67,38 @@ class _AppState extends State<ClassApp_9> {
                   children: <Widget>[
                     Expanded(
                         child: SizedBox(
-                          child: RaisedButton(
-                            onPressed: () {
-                              setState(() {
-                                this._insertTransaction();
-                              });
-                              Navigator.of(context).pop();
-                            },
-                            child: Text(
-                              'save',
-                              style: TextStyle(fontSize: 16, color: Colors.black),
-                            ),
-                            color: Colors.red,
-                          ),
-                          height: 50,
-                        )),
+                      child: RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            this._insertTransaction();
+                          });
+                          Navigator.of(context).pop();
+                        },
+                        child: Text(
+                          'save',
+                          style: TextStyle(fontSize: 16, color: Colors.black),
+                        ),
+                        color: Colors.red,
+                      ),
+                      height: 50,
+                    )),
                     Padding(padding: EdgeInsets.only(left: 10)),
                     Expanded(
                         child: SizedBox(
-                          child: RaisedButton(
-                            onPressed: () {
-                              setState(() {
-                                Navigator.of(context).pop();
-                              });
-                            },
-                            child: Text(
-                              'cancel',
-                              style: TextStyle(fontSize: 16, color: Colors.red),
-                            ),
-                            color: Colors.black,
-                          ),
-                          height: 50,
-                        )),
+                      child: RaisedButton(
+                        onPressed: () {
+                          setState(() {
+                            Navigator.of(context).pop();
+                          });
+                        },
+                        child: Text(
+                          'cancel',
+                          style: TextStyle(fontSize: 16, color: Colors.red),
+                        ),
+                        color: Colors.black,
+                      ),
+                      height: 50,
+                    )),
                   ],
                 ),
               ),
@@ -114,16 +111,10 @@ class _AppState extends State<ClassApp_9> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Transaction manager',
-            style: const TextStyle(
-                fontSize: 18,
-              fontFamily: 'Bonbon'
-            ),
-          ),
+          title: const Text('Transaction manager'),
           actions: <Widget>[
             IconButton(
                 icon: Icon(Icons.picture_as_pdf),
-                color: Theme.of(context).accentColor ,
                 onPressed: () {
                   this._onButtonShowModalSheet();
                 })
@@ -132,7 +123,6 @@ class _AppState extends State<ClassApp_9> {
         floatingActionButton: FloatingActionButton(
           tooltip: 'Add transaction',
           child: Icon(Icons.baby_changing_station_rounded),
-          backgroundColor: Random.secure().nextInt(9) % 2 == 0 ? Theme.of(context).primaryColor : Colors.green,
           onPressed: () {
             setState(() {
               this._onButtonShowModalSheet();

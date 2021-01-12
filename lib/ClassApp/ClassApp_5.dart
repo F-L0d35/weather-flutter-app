@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
-import 'package:weatherApp/Transaction.dart';
+import 'package:weatherApp/ClassApp/Transaction.dart';
 
-class ClassApp_4 extends StatefulWidget {
+class ClassApp_5 extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _AppState();
   }
 }
-class _AppState extends State<ClassApp_4> {
+class _AppState extends State<ClassApp_5> {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   final _contentController = TextEditingController();
   final _amountController = TextEditingController();
@@ -18,6 +17,30 @@ class _AppState extends State<ClassApp_4> {
 
   @override
   Widget build(BuildContext context) {
+
+    List<Widget> _buildWidgetList() {
+      int index = 0;
+     return _transactions.map((eachTransaction) {
+       index ++;
+        return Card(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10)
+            ),
+            elevation: 10,
+            color: (index - 1) % 2 == 0 ? Colors.pink : Colors.blue,
+            child: ListTile(
+              title: Text(eachTransaction.content, style: TextStyle(
+                  fontWeight: FontWeight.bold, fontSize: 18)),
+              subtitle: Text('this is price: ${eachTransaction.amount}'),
+              leading: const Icon(Icons.accessible_forward),
+              onLongPress: () {
+                print('long pressed');
+              },
+            )
+        );
+      }).toList();
+    }
+
     return MaterialApp(
         title: "This is a StatefulWidget",
         home: Scaffold(
@@ -33,7 +56,7 @@ class _AppState extends State<ClassApp_4> {
                     controller: _contentController,
                     onChanged: (text) {
                       setState(() {
-                       _transaction.content = text;
+                        _transaction.content = text;
                       });
                     },
                   ),
@@ -54,8 +77,9 @@ class _AppState extends State<ClassApp_4> {
                     FlatButton(onPressed: () {
                       setState(() {
                         _transactions.add(_transaction);
-                        _transaction.content = '';
-                        _transaction.amount = 0.0;
+                        _transaction = Transaction(content: '', amount: 0.0);
+                        _contentController.text = '';
+                        _amountController.text = '';
                       });
                       //print('Content = $_content, money\'s amount = $_amount');
                       // Scaffold.of(context).showSnackBar(
@@ -78,16 +102,7 @@ class _AppState extends State<ClassApp_4> {
                         textColor: Colors.white
                     ),
                   ),
-                  Column(children: _transactions.map((eachTransaction) {
-                    return ListTile(
-                      title: Text('this is content: ${eachTransaction.content}'),
-                      subtitle: Text('this is price: ${eachTransaction.amount}'),
-                      leading: const Icon(Icons.access_alarm),
-                      onLongPress: () {
-                        print('long pressed');
-                      },
-                    );
-                  }).toList(),
+                  Column(children: _buildWidgetList(),
                   )
                 ],
               ),

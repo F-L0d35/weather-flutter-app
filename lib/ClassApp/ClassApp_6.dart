@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:weatherApp/Transaction.dart';
-import 'package:weatherApp/TransactionList.dart';
+import 'package:weatherApp/ClassApp/Transaction.dart';
+import 'file:///C:/Users/felip/Desktop/Projetos/weather-flutter-app/lib/ClassApp/TransactionList.dart';
 
 class ClassApp_6 extends StatefulWidget {
   @override

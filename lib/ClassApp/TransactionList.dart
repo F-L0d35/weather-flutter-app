@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weatherApp/Transaction.dart';
+import 'package:weatherApp/ClassApp/Transaction.dart';
 
 class TransactionList extends StatelessWidget {
   final List<Transaction> transactions;

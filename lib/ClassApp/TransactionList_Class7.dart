@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:weatherApp/Transaction.dart';
+import 'package:weatherApp/ClassApp/Transaction.dart';
 
 class TransactionList_Class7 extends StatelessWidget {
   final List<Transaction> transactions;
