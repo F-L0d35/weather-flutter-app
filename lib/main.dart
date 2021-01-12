@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weatherApp/FoodApp.dart';
+import 'package:weatherApp/infinite_list_app.dart';
 
 // void main() {
 //   runApp(MaterialApp(
@@ -12,4 +12,4 @@ import 'package:weatherApp/FoodApp.dart';
 //   ));
 // }
 
-void main() => runApp(FoodApp());
+void main() => runApp(InfiniteListApp());
